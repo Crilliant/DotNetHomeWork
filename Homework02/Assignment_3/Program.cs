@@ -1,50 +1,54 @@
-﻿//Assignment 3
-//用“埃氏筛法”求2~ 100以内的素数。2~ 100以内的数，先去掉2的倍数，再去掉3的倍数，再去掉4的倍数，以此类推...最后剩下的就是素数
+﻿//assignment 4
+//如果矩阵上每一条由左上到右下的对角线上的元素都相同，那么这个矩阵是托普利茨矩阵 。给定一个 M x N 的矩阵，当且仅当它是托普利茨矩阵时返回 True。
 using System;
-using System.Collections.Generic;
-
-namespace Assignment_3
+namespace Assignment_4
 {
-    public class Prim
+    class Matrix
     {
-        public List<int> PrimTable = new List<int>();
-        
-        //将PrimTabel设置为2~max的素数
-        public void Eratosthenes(int max)
-        {
-            PrimTable.Clear();
 
-            List<bool> primCheck = new List<bool>();
-            for(int i = 0; i < max; i++)
+        int[,] matrix;
+        int m, n;
+        public void setMatrix(int[,] array)
+        {
+            m = array.GetLength(0);//0维长度，即行数
+            n = array.GetLength(1);//1维长度，即列数
+            matrix = new int[m, n];
+            for (int i = 0; i < m; i++)
             {
-                primCheck.Add(true);
-            }
-            for(int i = 2; i < max; i++)
-            {
-                for(int j = i * i; j < max; j += i)
+                for (int j = 0; j < n; j++)
                 {
-                    primCheck[j] = false;
-                }
-            }
-            for(int i = 2; i < max; i++)
-            {
-                if (primCheck[i])
-                {
-                    PrimTable.Add(i);
+                    matrix[i, j] = array[i, j];
                 }
             }
         }
 
+        public bool IsToeplitz()
+        {
+            if (matrix.Length == 0) return true;
+            for(int i = 1; i < m; i++)
+            {
+                for(int j=1;j< n; j++)
+                {
+                    if (matrix[i, j] != matrix[i - 1, j - 1])
+                        return false;
+                }
+
+            }
+
+            return true;
+        }
+    }
+    class Program
+    {
 
         static void Main(string[] args)
         {
-            Prim test = new Prim();
-            const int n =100;
-            test.Eratosthenes(n);
 
-            foreach(int i in test.PrimTable)            
-                Console.Write($"{i}\t");
-            
+            Matrix b = new Matrix();
+            int[,] array = { { 1, 2, 0, 4 }, { 0, 1, 2, 3 }, { 9, 0, 1, 2 } };
+            b.setMatrix(array);
+            Console.WriteLine(b.IsToeplitz());
+
         }
     }
 }
