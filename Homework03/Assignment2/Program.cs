@@ -52,6 +52,7 @@ namespace Assignment2
         {
             Random random = new Random();
             int type=random.Next(1,shapeNum);
+            try{
             switch (type)
             {
                 case 0:
@@ -60,7 +61,8 @@ namespace Assignment2
                     return CreateSquare();
                 default://2
                     return CreateTriangle();                
-            }
+            }}
+            catch{}//因为我的不可能常造成异常，所以没啥意义
         }
     }
     internal class Program
