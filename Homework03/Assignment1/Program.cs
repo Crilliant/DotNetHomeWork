@@ -7,8 +7,8 @@ namespace Assignment1
 {
     public interface Shape
     {
-        bool IsValidShape();
-        double GetArea();
+        bool IsValidShape();    
+        double GetArea();   //使用属性更加合理 double Area{get;} string Info{get;}
     }
     public class Rectangle:Shape
     {
@@ -20,6 +20,7 @@ namespace Assignment1
             this.width = width;
             this.height = height;
         }
+        //public width{get;set;}//防止square
         public bool IsValidShape()
         {
             if(width>0&&height>0)
@@ -56,7 +57,8 @@ namespace Assignment1
     }
     public class Triangle : Shape
     {
-        int line1,line2,line3;
+    //public double[]Egdes{get;set;}=new double[3]; //属性写成public，字段private       
+    int line1,line2,line3;
         public Triangle(int l1, int  l2, int l3)
         {
             if (l1<=0||l2<=0||l3<=0||l1 + l2 <= l3 || l1 + l3 <= l2 || l2 + l3 <= l1)
