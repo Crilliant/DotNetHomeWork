@@ -59,7 +59,7 @@ namespace Assignment1
         int line1,line2,line3;
         public Triangle(int l1, int  l2, int l3)
         {
-            if (l1<=0||l2<=0||l3<=0||l1 + l2 <= l3 || l1 + l3 <= l2 || l2 + l3 <= l1)
+            if (IsValidShape())
                 throw new ArgumentException("Invalid line length.");
             line1 = l1;
             line2 = l2;
