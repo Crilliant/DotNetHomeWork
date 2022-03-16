@@ -7,29 +7,30 @@ namespace Assignment1
 {
     public interface Shape
     {
-        bool IsValidShape();
-        double GetArea();
+        bool IsValidShape();    //命名冗余isValid()
+        double GetArea();   //使用属性更加合理 double Area{get;} string Info{get;}
     }
     public class Rectangle:Shape
     {
         private readonly int width, height;        
         public Rectangle(int width,int height)
         {
-            if (width < 0 || height < 0)
+            if (width < 0 || height < 0)//直接写isValid()
                 throw new ArgumentException("Invalid width or height.");
             this.width = width;
             this.height = height;
         }
+        //public width{get;set;}//防止square
         public bool IsValidShape()
         {
-            if(width>0&&height>0)
+            if(width>0&&height>0)//return(width>0&&height>0)
                 return true;    
             return false;
         }
         public double GetArea()
         {
             if (!IsValidShape())
-                throw new Exception("Invalid width or height.");
+                throw new Exception("Invalid width or height.");//尽量返回有意义的excpetion
             return width*height;
         }
     }
@@ -41,7 +42,7 @@ namespace Assignment1
             if (side < 0) throw new ArgumentException("Invalid side.");
             this.side = side;
         }
-        new public bool IsValidShape()
+        new public bool IsValidShape()//不要new,shape 没法多态
         {
             if(side>0)return true;
             else return false;  
@@ -56,7 +57,8 @@ namespace Assignment1
     }
     public class Triangle : Shape
     {
-        int line1,line2,line3;
+    //public double[]Egdes{get;set;}=new double[3]; //属性写成public，字段private       
+    int line1,line2,line3;
         public Triangle(int l1, int  l2, int l3)
         {
             if (IsValidShape())
