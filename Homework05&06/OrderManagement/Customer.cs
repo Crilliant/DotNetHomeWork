@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OrderManagement
 {
-    internal class Customer
+    public class Customer
     {
         private static int TotalID=0;
         public int ID { get;set; }

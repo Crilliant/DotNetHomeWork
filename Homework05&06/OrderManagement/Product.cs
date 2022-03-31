@@ -4,18 +4,21 @@ using System.Text;
 
 namespace OrderManagement
 {
-    internal class Product
+    public class Product
     {
         private static int TotalID = 0;
         public int ID { get; set; }
         public string Name { get; set; }
+        public float singlePrice { get; set; }
         public DateTime CreateTime { get; set; }
-        public Product(string name)
+        public Product(string name,float price)
         {
             this.Name = name;
             ID = ++TotalID;
             CreateTime = DateTime.Now;
+            singlePrice = price;
         }
+
         public override bool Equals(object obj)
         {
             Product product = obj as Product;
@@ -27,7 +30,7 @@ namespace OrderManagement
         }
         public override string ToString()
         {
-            return $"[Product {ID}] : {Name}";
+            return $"[Product {ID}] : {Name}\t[SinglePrice] : {singlePrice}";
         }
     }
 }

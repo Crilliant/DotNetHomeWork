@@ -5,20 +5,24 @@ using System.Linq;
 
 namespace OrderManagement
 {
-    internal class Order
+    public class Order
     //对应多个OderDetails,
     {
         private static int TotalID = 0;
-        public List<OrderDetails> details;
-        public int ID { get; }
+         List<OrderDetails> details=new List<OrderDetails>();//集合建议都初始化
+        public int ID { get; set; }
         public DateTime DealTime { get; }
         public Customer customer { get; set; }
         public double Price { get; set; }
+        public bool IsValid()
+        {
+            return ID != 0 && customer != null && details.Count > 0;
+        }
         public double TotalPrice
         {
             get { return details.Sum(x => x.TotalPrice); }
+            //get=>details.sum()
         }
-        //enum dealWays   {cash,card};  //付款方式
         public Order(List<OrderDetails> od, Customer customer)
         {
             this.customer = customer;
@@ -47,16 +51,16 @@ namespace OrderManagement
             {
                 s.Append(details.ToString());
             }
-            s.Append($"total price : {TotalPrice}\tCustomer : {customer}");
+            s.Append($"\ntotal price : {TotalPrice}\tCustomer : {customer}");
             return s.ToString();
         }
 
         //增加条目
         public void AddDetail(OrderDetails detail)
         {
-            if (details.Exists(x => x.Equals(detail)))
+            if (details.Exists(x => x.Equals(detail)))//if(details.Contains(detail)
             {
-                throw new ArgumentException($"Detail {detail.ID} exists.");
+                throw new ArgumentException($"Detail {detail} exists.");
             }
             details.Add(detail);
         }
