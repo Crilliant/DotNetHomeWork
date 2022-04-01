@@ -69,6 +69,8 @@ namespace OrderManagement
                 i++;
             }
 
+            //path : E:\DotNetHomework\Homework05&06\OrderManagement\bin\Debug\netcoreapp3.1
+            service.Export("test.xml");
         }
     }
 }

@@ -9,7 +9,7 @@ namespace OrderManagement
     //对应多个OderDetails,
     {
         private static int TotalID = 0;
-         List<OrderDetails> details=new List<OrderDetails>();//集合建议都初始化
+        List<OrderDetails> details=new List<OrderDetails>();//集合建议都初始化
         public int ID { get; set; }
         public DateTime DealTime { get; }
         public Customer customer { get; set; }
@@ -34,6 +34,7 @@ namespace OrderManagement
                 details.Add(i);
             }
         }
+        public Order() { }
 
         public override bool Equals(object obj)
         {

@@ -16,6 +16,10 @@ namespace OrderManagement
             ID = ++TotalID;
             CreateTime = DateTime.Now;
         }
+        public Customer()
+        {
+           
+        }
         public override bool Equals(object obj)
         {
             Customer customer = obj as Customer;

@@ -16,6 +16,10 @@ namespace OrderManagement
             Number = num;
             this.Discount = discount;
         }
+        public OrderDetails()
+        {
+
+        }
 
         public double TotalPrice{ get { return Product.singlePrice * Number * Discount; } }
         public override string ToString()
