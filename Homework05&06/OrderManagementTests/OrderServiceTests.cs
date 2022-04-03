@@ -16,7 +16,7 @@ namespace OrderManagement.Tests
         OrderService service;
 
         [TestInitialize]
-        public void InitialTest()
+        public void Init()
         {
             apple = new Product("apple", 1.5f);
             banana = new Product("banana", 2.3f);
@@ -72,7 +72,7 @@ namespace OrderManagement.Tests
         }
 
         [TestMethod()]
-        public void QueryTest1()
+        public void QueryTest1()//命名不要123
         {           
             List<Order> expect = new List<Order>();
             expect.Add(order1);

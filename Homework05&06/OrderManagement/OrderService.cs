@@ -92,7 +92,7 @@ namespace OrderManagement
                 xmlSerializer.Serialize(fs, OrderList);
             }            
         }
-        //应该考虑无效路径
+        //应该考虑无效路径，导入失败需要收集
         public void Import(string filename)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
@@ -104,7 +104,7 @@ namespace OrderManagement
             if(list == null) 
                 throw new FileLoadException("invalid path");
             else
-                OrderList = list;
+                OrderList = list;//Add()
         }
 
 

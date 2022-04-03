@@ -1,1 +1,1 @@
-用于提交软件构造基础作业。
+The repository contains submissions of assignments of course *Fundamentals of Software Construction* in spring 2022 semester.
