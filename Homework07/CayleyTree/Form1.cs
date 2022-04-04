@@ -14,13 +14,14 @@ namespace CayleyTree
     {
 
 		private Graphics graphics;
-		double th1 { set; get; } = 30 * Math.PI / 180;//右分支角度（th1）
-		double th2 { set; get; } = 20 * Math.PI / 180;//左分支角度（th2）
-		double per1 { set; get; } = 0.6;//右分支长度比（per1）
-		double per2 { set; get; } = 0.7;//左分支长度比（per2）
-		int depth { set; get; } = 10;
-		double leng { get; set; } = 100;//主干长度
+		public double th1 { set; get; } = 30 * Math.PI / 180;//右分支角度（th1）
+		public double th2 { set; get; } = 20 * Math.PI / 180;//左分支角度（th2）
+		public double per1 { set; get; } = 0.6;//右分支长度比（per1）
+		public double per2 { set; get; } = 0.7;//左分支长度比（per2）
+		public int depth { set; get; } = 10;
+		public double leng { get; set; } = 100;//主干长度
 		Pen pen = Pens.CornflowerBlue;
+		int drawingHeight, drawingWidth, rootx = 250, rooty = 400;
 
 
 		public Form1()
@@ -29,12 +30,15 @@ namespace CayleyTree
 			InitData();
 			this.AutoScaleBaseSize = new Size(6, 14);			
 			this.ClientSize = new Size(700, 500);
-			//this.Paint += new PaintEventHandler(this.Form1_Paint);
+			//this.Paint += new PaintEventHandler(this.Form1_Paint);			
 		}
 		private void Form1_Load(object sender, EventArgs e)
 		{
 
 		}
+		/// <summary>
+		/// 初始化主干长度取值
+		/// </summary>
 		private void InitData()
         {
 			ccbLength.Items.AddRange(new object[] { "80", "100", "120" });
@@ -71,12 +75,32 @@ namespace CayleyTree
 		private void DrawingPanel_Paint(object sender, PaintEventArgs e)
 		{
 			graphics = e.Graphics;
-			drawCayleyTree(250, 400, leng, -Math.PI / 2, depth);
+			drawCayleyTree(rootx, rooty, leng, -Math.PI / 2, depth);
 		}
 
 		private void btnDraw_Click(object sender, EventArgs e)
         {
 			tbDepth_TextCheck();
+
+			drawingHeight = DrawingPanel.Height;
+			drawingWidth = DrawingPanel.Width-tableLayoutPanel.Width;
+			if (drawingHeight >= 500)
+			{
+				rooty = drawingHeight / 2 + 150;
+            }
+            else
+            {
+				rooty = 400;
+            }
+			if (drawingWidth >= 500)
+			{
+				rootx = drawingWidth / 2;
+            }
+            else
+            {
+				rootx = 250;
+            }
+
 			DrawingPanel.Paint += new PaintEventHandler(this.DrawingPanel_Paint);
 			DrawingPanel.Refresh();	//Forces the control to invalidate its client area and immediately redraw itself and any child controls.
 		}
@@ -143,7 +167,13 @@ namespace CayleyTree
 		{
 			pen = Pens.OrangeRed;
 		}
-		private void rbtnGreen_CheckedChanged(object sender, EventArgs e)
+
+        private void DrawingPanel_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void rbtnGreen_CheckedChanged(object sender, EventArgs e)
         {
 			pen = Pens.ForestGreen;
         }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.lLength = new System.Windows.Forms.Label();
             this.lDepth = new System.Windows.Forms.Label();
             this.LColor = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.rbtnOrange = new System.Windows.Forms.RadioButton();
             this.rbtnBlue = new System.Windows.Forms.RadioButton();
             this.DrawingPanel = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAngleR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAngleL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupPerL)).BeginInit();
@@ -58,50 +58,50 @@
             this.DrawingPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel
             // 
-            this.tableLayoutPanel1.AutoScroll = true;
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.lLength, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lDepth, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.LColor, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.lPerR, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lPerL, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.ccbLength, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tbDepth, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.nudAngleR, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.nudAngleL, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.nupPerL, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.nupPerR, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lAngelL, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.lAngleR, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.btnDraw, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.pnColor, 1, 7);
-            this.tableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tableLayoutPanel1.ForeColor = System.Drawing.Color.Black;
-            this.tableLayoutPanel1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(500, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 10;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(331, 513);
-            this.tableLayoutPanel1.TabIndex = 2;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.tableLayoutPanel.AutoScroll = true;
+            this.tableLayoutPanel.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.tableLayoutPanel.ColumnCount = 2;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.Controls.Add(this.lLength, 0, 1);
+            this.tableLayoutPanel.Controls.Add(this.lDepth, 0, 2);
+            this.tableLayoutPanel.Controls.Add(this.LColor, 0, 7);
+            this.tableLayoutPanel.Controls.Add(this.lPerR, 0, 3);
+            this.tableLayoutPanel.Controls.Add(this.lPerL, 0, 4);
+            this.tableLayoutPanel.Controls.Add(this.ccbLength, 1, 1);
+            this.tableLayoutPanel.Controls.Add(this.tbDepth, 1, 2);
+            this.tableLayoutPanel.Controls.Add(this.nudAngleR, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.nudAngleL, 1, 6);
+            this.tableLayoutPanel.Controls.Add(this.nupPerL, 1, 4);
+            this.tableLayoutPanel.Controls.Add(this.nupPerR, 1, 3);
+            this.tableLayoutPanel.Controls.Add(this.lAngelL, 0, 6);
+            this.tableLayoutPanel.Controls.Add(this.lAngleR, 0, 5);
+            this.tableLayoutPanel.Controls.Add(this.btnDraw, 1, 7);
+            this.tableLayoutPanel.Controls.Add(this.pnColor, 1, 7);
+            this.tableLayoutPanel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tableLayoutPanel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tableLayoutPanel.ForeColor = System.Drawing.Color.Black;
+            this.tableLayoutPanel.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.tableLayoutPanel.Location = new System.Drawing.Point(500, 0);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(10);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 10;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(331, 513);
+            this.tableLayoutPanel.TabIndex = 2;
+            this.tableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // lLength
             // 
@@ -275,7 +275,7 @@
             // btnDraw
             // 
             this.btnDraw.BackColor = System.Drawing.Color.RosyBrown;
-            this.tableLayoutPanel1.SetColumnSpan(this.btnDraw, 2);
+            this.tableLayoutPanel.SetColumnSpan(this.btnDraw, 2);
             this.btnDraw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDraw.Location = new System.Drawing.Point(50, 436);
             this.btnDraw.Margin = new System.Windows.Forms.Padding(50, 10, 50, 0);
@@ -340,12 +340,13 @@
             // 
             // DrawingPanel
             // 
-            this.DrawingPanel.Controls.Add(this.tableLayoutPanel1);
+            this.DrawingPanel.Controls.Add(this.tableLayoutPanel);
             this.DrawingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DrawingPanel.Location = new System.Drawing.Point(0, 0);
             this.DrawingPanel.Name = "DrawingPanel";
             this.DrawingPanel.Size = new System.Drawing.Size(831, 513);
             this.DrawingPanel.TabIndex = 3;
+            this.DrawingPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawingPanel_Paint_1);
             // 
             // Form1
             // 
@@ -358,8 +359,8 @@
             this.Name = "Form1";
             this.Text = "CaycelTreeForm";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel.ResumeLayout(false);
+            this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAngleR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAngleL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupPerL)).EndInit();
@@ -373,7 +374,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Label lLength;
         private System.Windows.Forms.Label lDepth;
         private System.Windows.Forms.Label LColor;
