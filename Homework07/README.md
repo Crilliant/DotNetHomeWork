@@ -16,6 +16,6 @@ draw : alt+D
 
 ###### 效果
 
-<img src="image-20220404100156901.png" alt="image-20220404100156901" style="zoom:50%;" />
+<img src="bigDisplay.png" alt="image-20220404100156901" style="zoom:80%;" />
 
-<img src="display.png" alt="image-20220403235334865" style="zoom:50%;" />
+<img src="display.png" alt="image-20220403235334865" style="zoom:40%;" />

@@ -44,6 +44,20 @@ namespace OrderManagement.Tests
             service.AddOdder(order2);
             service.AddOdder(order3);
         }
+
+        [TestMethod]
+        public void AddOdderTest()
+        {
+            order4 = new Order(
+                new List<OrderDetails>() {new OrderDetails(cat, 2, 0.5), new OrderDetails(banana, 4, 1) },
+                Ada);
+            service.AddOdder(order4);
+            List<Order> orders = service.QueryAll();
+            Assert.IsNotNull(orders);
+            Assert.AreEqual(4, orders.Count);
+            CollectionAssert.Contains(orders, order4);
+        }
+
         [TestMethod()]
         public void GetByIDTest()
         {

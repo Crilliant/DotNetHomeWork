@@ -35,7 +35,7 @@
             this.LColor = new System.Windows.Forms.Label();
             this.lPerR = new System.Windows.Forms.Label();
             this.lPerL = new System.Windows.Forms.Label();
-            this.ccbLength = new System.Windows.Forms.ComboBox();
+            this.cbxLength = new System.Windows.Forms.ComboBox();
             this.tbDepth = new System.Windows.Forms.TextBox();
             this.nudAngleR = new System.Windows.Forms.NumericUpDown();
             this.nudAngleL = new System.Windows.Forms.NumericUpDown();
@@ -70,7 +70,7 @@
             this.tableLayoutPanel.Controls.Add(this.LColor, 0, 7);
             this.tableLayoutPanel.Controls.Add(this.lPerR, 0, 3);
             this.tableLayoutPanel.Controls.Add(this.lPerL, 0, 4);
-            this.tableLayoutPanel.Controls.Add(this.ccbLength, 1, 1);
+            this.tableLayoutPanel.Controls.Add(this.cbxLength, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.tbDepth, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.nudAngleR, 1, 5);
             this.tableLayoutPanel.Controls.Add(this.nudAngleL, 1, 6);
@@ -85,7 +85,7 @@
             this.tableLayoutPanel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tableLayoutPanel.ForeColor = System.Drawing.Color.Black;
             this.tableLayoutPanel.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(500, 0);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(527, 0);
             this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 10;
@@ -99,7 +99,7 @@
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(331, 513);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(331, 625);
             this.tableLayoutPanel.TabIndex = 2;
             this.tableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -107,7 +107,7 @@
             // 
             this.lLength.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lLength.AutoSize = true;
-            this.lLength.Location = new System.Drawing.Point(80, 39);
+            this.lLength.Location = new System.Drawing.Point(80, 95);
             this.lLength.Name = "lLength";
             this.lLength.Size = new System.Drawing.Size(82, 24);
             this.lLength.TabIndex = 6;
@@ -117,7 +117,7 @@
             // 
             this.lDepth.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lDepth.AutoSize = true;
-            this.lDepth.Location = new System.Drawing.Point(80, 89);
+            this.lDepth.Location = new System.Drawing.Point(80, 145);
             this.lDepth.Name = "lDepth";
             this.lDepth.Size = new System.Drawing.Size(82, 24);
             this.lDepth.TabIndex = 3;
@@ -127,7 +127,7 @@
             // 
             this.LColor.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LColor.AutoSize = true;
-            this.LColor.Location = new System.Drawing.Point(80, 364);
+            this.LColor.Location = new System.Drawing.Point(80, 420);
             this.LColor.Name = "LColor";
             this.LColor.Size = new System.Drawing.Size(82, 24);
             this.LColor.TabIndex = 5;
@@ -137,7 +137,7 @@
             // 
             this.lPerR.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lPerR.AutoSize = true;
-            this.lPerR.Location = new System.Drawing.Point(44, 139);
+            this.lPerR.Location = new System.Drawing.Point(44, 195);
             this.lPerR.Name = "lPerR";
             this.lPerR.Size = new System.Drawing.Size(118, 24);
             this.lPerR.TabIndex = 4;
@@ -147,27 +147,27 @@
             // 
             this.lPerL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lPerL.AutoSize = true;
-            this.lPerL.Location = new System.Drawing.Point(44, 189);
+            this.lPerL.Location = new System.Drawing.Point(44, 245);
             this.lPerL.Name = "lPerL";
             this.lPerL.Size = new System.Drawing.Size(118, 24);
             this.lPerL.TabIndex = 2;
             this.lPerL.Text = "左分支长度比";
             // 
-            // ccbLength
+            // cbxLength
             // 
-            this.ccbLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ccbLength.FormattingEnabled = true;
-            this.ccbLength.Location = new System.Drawing.Point(168, 35);
-            this.ccbLength.Name = "ccbLength";
-            this.ccbLength.Size = new System.Drawing.Size(160, 32);
-            this.ccbLength.TabIndex = 7;
-            this.ccbLength.Text = "100";
-            this.ccbLength.SelectedIndexChanged += new System.EventHandler(this.ccbLength_SelectedIndexChanged);
+            this.cbxLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxLength.FormattingEnabled = true;
+            this.cbxLength.Location = new System.Drawing.Point(168, 94);
+            this.cbxLength.Name = "cbxLength";
+            this.cbxLength.Size = new System.Drawing.Size(160, 32);
+            this.cbxLength.TabIndex = 7;
+            this.cbxLength.Text = "100";
+            this.cbxLength.SelectedIndexChanged += new System.EventHandler(this.ccbLength_SelectedIndexChanged);
             // 
             // tbDepth
             // 
             this.tbDepth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDepth.Location = new System.Drawing.Point(168, 85);
+            this.tbDepth.Location = new System.Drawing.Point(168, 141);
             this.tbDepth.Name = "tbDepth";
             this.tbDepth.Size = new System.Drawing.Size(160, 31);
             this.tbDepth.TabIndex = 8;
@@ -177,7 +177,12 @@
             // nudAngleR
             // 
             this.nudAngleR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudAngleR.Location = new System.Drawing.Point(168, 235);
+            this.nudAngleR.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudAngleR.Location = new System.Drawing.Point(168, 291);
             this.nudAngleR.Maximum = new decimal(new int[] {
             90,
             0,
@@ -196,7 +201,12 @@
             // nudAngleL
             // 
             this.nudAngleL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudAngleL.Location = new System.Drawing.Point(168, 285);
+            this.nudAngleL.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudAngleL.Location = new System.Drawing.Point(168, 341);
             this.nudAngleL.Maximum = new decimal(new int[] {
             90,
             0,
@@ -216,7 +226,12 @@
             // 
             this.nupPerL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nupPerL.DecimalPlaces = 1;
-            this.nupPerL.Location = new System.Drawing.Point(168, 185);
+            this.nupPerL.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nupPerL.Location = new System.Drawing.Point(168, 241);
             this.nupPerL.Maximum = new decimal(new int[] {
             1,
             0,
@@ -236,7 +251,12 @@
             // 
             this.nupPerR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nupPerR.DecimalPlaces = 1;
-            this.nupPerR.Location = new System.Drawing.Point(168, 135);
+            this.nupPerR.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nupPerR.Location = new System.Drawing.Point(168, 191);
             this.nupPerR.Maximum = new decimal(new int[] {
             1,
             0,
@@ -256,7 +276,7 @@
             // 
             this.lAngelL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lAngelL.AutoSize = true;
-            this.lAngelL.Location = new System.Drawing.Point(62, 289);
+            this.lAngelL.Location = new System.Drawing.Point(62, 345);
             this.lAngelL.Name = "lAngelL";
             this.lAngelL.Size = new System.Drawing.Size(100, 24);
             this.lAngelL.TabIndex = 1;
@@ -266,7 +286,7 @@
             // 
             this.lAngleR.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lAngleR.AutoSize = true;
-            this.lAngleR.Location = new System.Drawing.Point(62, 239);
+            this.lAngleR.Location = new System.Drawing.Point(62, 295);
             this.lAngleR.Name = "lAngleR";
             this.lAngleR.Size = new System.Drawing.Size(100, 24);
             this.lAngleR.TabIndex = 0;
@@ -277,7 +297,7 @@
             this.btnDraw.BackColor = System.Drawing.Color.RosyBrown;
             this.tableLayoutPanel.SetColumnSpan(this.btnDraw, 2);
             this.btnDraw.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDraw.Location = new System.Drawing.Point(50, 436);
+            this.btnDraw.Location = new System.Drawing.Point(50, 492);
             this.btnDraw.Margin = new System.Windows.Forms.Padding(50, 10, 50, 0);
             this.btnDraw.Name = "btnDraw";
             this.btnDraw.Size = new System.Drawing.Size(231, 50);
@@ -294,7 +314,7 @@
             this.pnColor.Controls.Add(this.rbtnBlue);
             this.pnColor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnColor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnColor.Location = new System.Drawing.Point(168, 329);
+            this.pnColor.Location = new System.Drawing.Point(168, 385);
             this.pnColor.Name = "pnColor";
             this.pnColor.Size = new System.Drawing.Size(160, 94);
             this.pnColor.TabIndex = 17;
@@ -344,7 +364,7 @@
             this.DrawingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DrawingPanel.Location = new System.Drawing.Point(0, 0);
             this.DrawingPanel.Name = "DrawingPanel";
-            this.DrawingPanel.Size = new System.Drawing.Size(831, 513);
+            this.DrawingPanel.Size = new System.Drawing.Size(858, 625);
             this.DrawingPanel.TabIndex = 3;
             this.DrawingPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawingPanel_Paint_1);
             // 
@@ -352,7 +372,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 513);
+            this.ClientSize = new System.Drawing.Size(858, 625);
             this.Controls.Add(this.DrawingPanel);
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -382,7 +402,7 @@
         private System.Windows.Forms.Label lPerL;
         private System.Windows.Forms.Label lAngelL;
         private System.Windows.Forms.Label lAngleR;
-        private System.Windows.Forms.ComboBox ccbLength;
+        private System.Windows.Forms.ComboBox cbxLength;
         private System.Windows.Forms.Panel DrawingPanel;
         private System.Windows.Forms.TextBox tbDepth;
         private System.Windows.Forms.NumericUpDown nudAngleR;

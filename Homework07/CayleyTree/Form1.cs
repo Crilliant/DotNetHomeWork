@@ -41,7 +41,7 @@ namespace CayleyTree
 		/// </summary>
 		private void InitData()
         {
-			ccbLength.Items.AddRange(new object[] { "80", "100", "120" });
+			cbxLength.Items.AddRange(new object[] { "80", "100", "120" });
 
 		}
 
@@ -107,7 +107,7 @@ namespace CayleyTree
 
 		private void ccbLength_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			leng = Int32.Parse(ccbLength.Text);
+			leng = Int32.Parse(cbxLength.Text);
 		}
 
 		private void tbDepth_TextChanged(object sender, EventArgs e)
