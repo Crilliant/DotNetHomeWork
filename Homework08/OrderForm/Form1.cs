@@ -152,6 +152,7 @@ namespace OrderForm
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
+            Order o=orderBindingSource.Current as Order;
             //For single row selection;            
             int id = (int)OrderGridView.CurrentRow.Cells[0].Value;
             service.DeleteByID(id);

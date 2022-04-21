@@ -41,20 +41,22 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.deleteBtn = new System.Windows.Forms.Button();
-            this.AddBtn = new System.Windows.Forms.Button();
-            this.updateBtn = new System.Windows.Forms.Button();
-            this.txbQuery = new System.Windows.Forms.TextBox();
-            this.importBtn = new System.Windows.Forms.Button();
-            this.queryBtn = new System.Windows.Forms.Button();
-            this.exprtBtn = new System.Windows.Forms.Button();
             this.Querycbx = new System.Windows.Forms.ComboBox();
+            this.exprtBtn = new System.Windows.Forms.Button();
+            this.queryBtn = new System.Windows.Forms.Button();
+            this.importBtn = new System.Windows.Forms.Button();
+            this.txbQuery = new System.Windows.Forms.TextBox();
+            this.updateBtn = new System.Windows.Forms.Button();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
             this.pnlQuery = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -196,20 +198,21 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnCount = 6;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 304F));
             this.tableLayoutPanel1.Controls.Add(this.Querycbx, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.exprtBtn, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.queryBtn, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.importBtn, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.txbQuery, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.updateBtn, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.AddBtn, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.deleteBtn, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.queryBtn, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -219,67 +222,23 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1544, 99);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
-            // deleteBtn
+            // Querycbx
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(554, 52);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(93, 44);
-            this.deleteBtn.TabIndex = 4;
-            this.deleteBtn.Text = "删除";
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.AddBtn.Location = new System.Drawing.Point(3, 53);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(93, 44);
-            this.AddBtn.TabIndex = 5;
-            this.AddBtn.Text = "添加";
-            this.AddBtn.UseVisualStyleBackColor = true;
-            // 
-            // updateBtn
-            // 
-            this.updateBtn.Location = new System.Drawing.Point(1105, 52);
-            this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(93, 44);
-            this.updateBtn.TabIndex = 3;
-            this.updateBtn.Text = "修改";
-            this.updateBtn.UseVisualStyleBackColor = true;
-            // 
-            // txbQuery
-            // 
-            this.txbQuery.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txbQuery.Location = new System.Drawing.Point(554, 3);
-            this.txbQuery.Name = "txbQuery";
-            this.txbQuery.Size = new System.Drawing.Size(133, 28);
-            this.txbQuery.TabIndex = 1;
-            // 
-            // importBtn
-            // 
-            this.importBtn.Location = new System.Drawing.Point(1233, 52);
-            this.importBtn.Name = "importBtn";
-            this.importBtn.Size = new System.Drawing.Size(93, 44);
-            this.importBtn.TabIndex = 6;
-            this.importBtn.Text = "导入";
-            this.importBtn.UseVisualStyleBackColor = true;
-            this.importBtn.Click += new System.EventHandler(this.importBtn_Click);
-            // 
-            // queryBtn
-            // 
-            this.queryBtn.Location = new System.Drawing.Point(1105, 3);
-            this.queryBtn.Name = "queryBtn";
-            this.queryBtn.Size = new System.Drawing.Size(93, 43);
-            this.queryBtn.TabIndex = 2;
-            this.queryBtn.Text = "查询";
-            this.queryBtn.UseVisualStyleBackColor = true;
-            this.queryBtn.Click += new System.EventHandler(this.queryBtn_Click);
+            this.Querycbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Querycbx.FormattingEnabled = true;
+            this.Querycbx.Items.AddRange(new object[] {
+            "所有",
+            "订单id",
+            "顾客"});
+            this.Querycbx.Location = new System.Drawing.Point(3, 11);
+            this.Querycbx.Name = "Querycbx";
+            this.Querycbx.Size = new System.Drawing.Size(242, 26);
+            this.Querycbx.TabIndex = 0;
+            this.Querycbx.SelectedIndexChanged += new System.EventHandler(this.Querycbx_SelectedIndexChanged);
             // 
             // exprtBtn
             // 
-            this.exprtBtn.Location = new System.Drawing.Point(1358, 52);
+            this.exprtBtn.Location = new System.Drawing.Point(995, 52);
             this.exprtBtn.Name = "exprtBtn";
             this.exprtBtn.Size = new System.Drawing.Size(93, 44);
             this.exprtBtn.TabIndex = 7;
@@ -287,19 +246,66 @@
             this.exprtBtn.UseVisualStyleBackColor = true;
             this.exprtBtn.Click += new System.EventHandler(this.exprtBtn_Click);
             // 
-            // Querycbx
+            // queryBtn
             // 
-            this.Querycbx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Querycbx.FormattingEnabled = true;
-            this.Querycbx.Items.AddRange(new object[] {
-            "所有",
-            "订单id",
-            "顾客"});
-            this.Querycbx.Location = new System.Drawing.Point(210, 3);
-            this.Querycbx.Name = "Querycbx";
-            this.Querycbx.Size = new System.Drawing.Size(130, 26);
-            this.Querycbx.TabIndex = 0;
-            this.Querycbx.SelectedIndexChanged += new System.EventHandler(this.Querycbx_SelectedIndexChanged);
+            this.queryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.queryBtn.Location = new System.Drawing.Point(784, 5);
+            this.queryBtn.Margin = new System.Windows.Forms.Padding(40, 5, 40, 5);
+            this.queryBtn.Name = "queryBtn";
+            this.queryBtn.Size = new System.Drawing.Size(168, 39);
+            this.queryBtn.TabIndex = 2;
+            this.queryBtn.Text = "查询";
+            this.queryBtn.UseVisualStyleBackColor = true;
+            this.queryBtn.Click += new System.EventHandler(this.queryBtn_Click);
+            // 
+            // importBtn
+            // 
+            this.importBtn.Location = new System.Drawing.Point(747, 52);
+            this.importBtn.Name = "importBtn";
+            this.importBtn.Size = new System.Drawing.Size(93, 44);
+            this.importBtn.TabIndex = 6;
+            this.importBtn.Text = "导入";
+            this.importBtn.UseVisualStyleBackColor = true;
+            this.importBtn.Click += new System.EventHandler(this.importBtn_Click);
+            // 
+            // txbQuery
+            // 
+            this.txbQuery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.txbQuery, 2);
+            this.txbQuery.Location = new System.Drawing.Point(251, 10);
+            this.txbQuery.Name = "txbQuery";
+            this.txbQuery.Size = new System.Drawing.Size(490, 28);
+            this.txbQuery.TabIndex = 1;
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.updateBtn.Location = new System.Drawing.Point(499, 52);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(242, 44);
+            this.updateBtn.TabIndex = 3;
+            this.updateBtn.Text = "修改";
+            this.updateBtn.UseVisualStyleBackColor = true;
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.AddBtn.Location = new System.Drawing.Point(77, 52);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(93, 44);
+            this.AddBtn.TabIndex = 5;
+            this.AddBtn.Text = "添加";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Location = new System.Drawing.Point(251, 52);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(93, 44);
+            this.deleteBtn.TabIndex = 4;
+            this.deleteBtn.Text = "删除";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // pnlQuery
             // 
@@ -349,6 +355,22 @@
             this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Product";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Product";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Product";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Product";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 150;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -463,6 +485,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
     }
 }
 
