@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OrderForm
 {
-    public partial class Form2 : Form
+    public partial class EditForm : Form
     {
-        public Form2()
+        public EditForm()
         {
             InitializeComponent();
         }

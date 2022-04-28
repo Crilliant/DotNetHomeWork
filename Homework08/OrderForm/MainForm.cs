@@ -169,29 +169,34 @@ namespace OrderForm
             service.Import("../OrderList.xml");
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void AddBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
+        //private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void GridDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        //private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        //private void GridDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void orderGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
+
+        //private void orderGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+
+        //}
     }
 }

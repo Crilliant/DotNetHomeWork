@@ -32,8 +32,6 @@
             this.splitOrder = new System.Windows.Forms.SplitContainer();
             this.OrderGridView = new System.Windows.Forms.DataGridView();
             this.detailsGridView = new System.Windows.Forms.DataGridView();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,12 +41,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Querycbx = new System.Windows.Forms.ComboBox();
             this.exprtBtn = new System.Windows.Forms.Button();
-            this.queryBtn = new System.Windows.Forms.Button();
             this.importBtn = new System.Windows.Forms.Button();
             this.txbQuery = new System.Windows.Forms.TextBox();
             this.updateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
+            this.queryBtn = new System.Windows.Forms.Button();
             this.pnlQuery = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,12 +55,16 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dealTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitOrder)).BeginInit();
             this.splitOrder.Panel1.SuspendLayout();
@@ -84,7 +86,6 @@
             // splitOrder.Panel1
             // 
             this.splitOrder.Panel1.Controls.Add(this.OrderGridView);
-            this.splitOrder.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitOrder.Panel2
             // 
@@ -110,7 +111,6 @@
             this.OrderGridView.RowTemplate.Height = 30;
             this.OrderGridView.Size = new System.Drawing.Size(741, 552);
             this.OrderGridView.TabIndex = 4;
-            this.OrderGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGridView_CellContentClick);
             // 
             // detailsGridView
             // 
@@ -130,23 +130,6 @@
             this.detailsGridView.RowTemplate.Height = 30;
             this.detailsGridView.Size = new System.Drawing.Size(799, 552);
             this.detailsGridView.TabIndex = 0;
-            this.detailsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDetail_CellContentClick);
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "Number";
-            this.Number.MinimumWidth = 8;
-            this.Number.Name = "Number";
-            this.Number.Width = 150;
-            // 
-            // Discount
-            // 
-            this.Discount.DataPropertyName = "Discount";
-            this.Discount.HeaderText = "Discount";
-            this.Discount.MinimumWidth = 8;
-            this.Discount.Name = "Discount";
-            this.Discount.Width = 150;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -246,18 +229,6 @@
             this.exprtBtn.UseVisualStyleBackColor = true;
             this.exprtBtn.Click += new System.EventHandler(this.exprtBtn_Click);
             // 
-            // queryBtn
-            // 
-            this.queryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.queryBtn.Location = new System.Drawing.Point(784, 5);
-            this.queryBtn.Margin = new System.Windows.Forms.Padding(40, 5, 40, 5);
-            this.queryBtn.Name = "queryBtn";
-            this.queryBtn.Size = new System.Drawing.Size(168, 39);
-            this.queryBtn.TabIndex = 2;
-            this.queryBtn.Text = "查询";
-            this.queryBtn.UseVisualStyleBackColor = true;
-            this.queryBtn.Click += new System.EventHandler(this.queryBtn_Click);
-            // 
             // importBtn
             // 
             this.importBtn.Location = new System.Drawing.Point(747, 52);
@@ -296,6 +267,7 @@
             this.AddBtn.TabIndex = 5;
             this.AddBtn.Text = "添加";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // deleteBtn
             // 
@@ -306,6 +278,18 @@
             this.deleteBtn.Text = "删除";
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // queryBtn
+            // 
+            this.queryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.queryBtn.Location = new System.Drawing.Point(784, 5);
+            this.queryBtn.Margin = new System.Windows.Forms.Padding(40, 5, 40, 5);
+            this.queryBtn.Name = "queryBtn";
+            this.queryBtn.Size = new System.Drawing.Size(168, 39);
+            this.queryBtn.TabIndex = 2;
+            this.queryBtn.Text = "查询";
+            this.queryBtn.UseVisualStyleBackColor = true;
+            this.queryBtn.Click += new System.EventHandler(this.queryBtn_Click);
             // 
             // pnlQuery
             // 
@@ -372,6 +356,22 @@
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.Width = 150;
             // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Product";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Product";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Product";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Product";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Width = 150;
+            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -413,15 +413,31 @@
             // Product
             // 
             this.Product.DataPropertyName = "Product";
-            this.Product.HeaderText = "Product";
+            this.Product.HeaderText = "商品";
             this.Product.MinimumWidth = 8;
             this.Product.Name = "Product";
             this.Product.Width = 150;
             // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "数量";
+            this.Number.MinimumWidth = 8;
+            this.Number.Name = "Number";
+            this.Number.Width = 150;
+            // 
+            // Discount
+            // 
+            this.Discount.DataPropertyName = "Discount";
+            this.Discount.HeaderText = "折扣";
+            this.Discount.MinimumWidth = 8;
+            this.Discount.Name = "Discount";
+            this.Discount.Width = 150;
+            // 
             // totalPriceDataGridViewTextBoxColumn1
             // 
             this.totalPriceDataGridViewTextBoxColumn1.DataPropertyName = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn1.HeaderText = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn1.HeaderText = "总价格";
             this.totalPriceDataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.totalPriceDataGridViewTextBoxColumn1.Name = "totalPriceDataGridViewTextBoxColumn1";
             this.totalPriceDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -456,10 +472,6 @@
         private System.Windows.Forms.SplitContainer splitOrder;
         private System.Windows.Forms.DataGridView OrderGridView;
         private System.Windows.Forms.DataGridView detailsGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -487,6 +499,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
     }
 }
 

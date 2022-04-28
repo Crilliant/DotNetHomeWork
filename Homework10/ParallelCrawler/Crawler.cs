@@ -8,49 +8,74 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Concurrent;
 
-namespace Crawler
+namespace ParallelCrawler
 {
-    
-    class SimpleCrawler
+    class Crawler
     {
-        private Hashtable urls = new Hashtable();
-        // 可改成Dictionary<string, bool> + Queue-->爬取策略
-        private int count = 0;
-        public int sum { get; set; } = 10;
-        public string startUrl { get; set; } = "http://www.cnblogs.com/dstang2000/";
 
-        public event Action<string> BeginHandler;
+        private ConcurrentDictionary<string, bool> visited 
+            = new ConcurrentDictionary<string, bool>();
+        private ConcurrentQueue<string> urls 
+            = new ConcurrentQueue<string>();
+
+        private int count = 0;
+        public int sum { get; set; } = 20;
+        public string startUrl { get; set; } = "http://www.cnblogs.com/dstang2000/";
+       
+
+        public event Action<string> LogHandler;
 
 
         public void StartCrawler()
         {
-            urls.Add(startUrl, false);    // 加入没爬的初始页面, (key, value)
-            //new Thread(Crawl).Start();
-            Crawl();
+                       
+            // 加入没爬的初始页面, (key, value)            
+            urls.Enqueue(startUrl);
+            visited[startUrl] = false;
+            LogHandler("开始爬行了.... \r\n");
+
+            // Crawl();
+            Task[] tasks = {
+                Task.Run( () => Crawl() ),
+                Task.Run( () => Crawl() ),
+                Task.Run( () => Crawl() ),
+                Task.Run( () => Crawl() ),
+                Task.Run( () => Crawl() )
+                    };
+
         }
 
         private void Crawl()
         {
-            BeginHandler("开始爬行了.... \r\n");
-
+            
             while (true)
             {
                 string current = null;
-                foreach (string url in urls.Keys)
+                
+                // 已经爬过了               
+                foreach(string url in urls)
                 {
-                    if ((bool)urls[url])  continue;  // 已经爬过了
-                    current = url;
-                }
+                    // 未能移除队列第一个url
+                    if (!urls.TryDequeue(out current)) continue;
+                    break;  // 取到一个有效url
 
+                }
                 if (current == null || count > sum)     // 表中没有新的url或者爬的数量足够
                     break;
-                BeginHandler("爬行" + current + "页面!\r\n");
+
+                LogHandler("爬行" + current + "页面!\r\n");
                 string html = DownLoad(current); // 下载
-                urls[current] = true;
-                count++;    // 已爬过的数量
+                visited[current] = true;
+                
+                lock (this)
+                {
+                    count++;// 已爬过的数量
+                }
                 Parse(html, current);// 解析本网页, 提取出其中的超链接，并加入hashtable。
-                BeginHandler("爬行结束。\r\n");
+                LogHandler("爬行结束。\r\n");
+                
             }
         }
 
@@ -67,7 +92,7 @@ namespace Crawler
             }
             catch (Exception ex)
             {
-                BeginHandler(ex.Message + "\r\n");
+                LogHandler(ex.Message + "\r\n");
                 return "";
             }
         }
@@ -76,20 +101,24 @@ namespace Crawler
         {
             string strRef = @"(href|HREF)\s*=\s*[" + "\"'][^" + "\"'#>]+[" + "'\"]";
             //string strRef = @"(href|HREF)[ ]*=[ ]*[""'](?<url>^""'#>)+[""']";
-            // strRef匹配：<a href="http://abc">
             MatchCollection matches = new Regex(strRef).Matches(html);
             string newPath = "";
 
             foreach (Match match in matches)
             {
+                //newPath = match.Groups["url"].Value;
                 newPath = match.Value.Substring(match.Value.IndexOf('=') + 1)
                           .Trim('"', '\"', '#', '>', ' ');   // 从=后面的字符开始，trim修建开头结尾的"'#>\s
-                //newPath = match.Groups["url"].Value;
+
 
                 //路径不是想要的类型
-                if ( !IsWantedType(newPath) ) continue;
+                if (!IsWantedType(newPath)) continue;
                 newPath = RelativeToAbsolute(newPath, current);
-                if (urls[newPath] == null)   urls[newPath] = false;
+                if (!visited.ContainsKey(newPath)) 
+                {
+                    urls.Enqueue(newPath);
+                    visited[newPath] = false;
+                }  
             }
         }
         /// <summary>
@@ -111,15 +140,13 @@ namespace Crawler
         /// <returns>返回绝对路径</returns>
         private string RelativeToAbsolute(string url, string root)
         {
-
-            if(url.Contains("://"))  return url;
-     //       if (Regex.IsMatch(url, AbsolutePattern))    return url;
+            if (url.Contains("://")) return url;
 
             string thisDirPattern = @"^(./|/)(?<nakePath>.+)";
             string upperDirPattern = @"^(../)(?<nakePath>.+)";
             string goUpperDir = @"(.*)(/.*)$";
-            
-            if(Regex.IsMatch(url, thisDirPattern))
+
+            if (Regex.IsMatch(url, thisDirPattern))
             {
                 MatchCollection match = Regex.Matches(url, thisDirPattern);
                 url = root + "/" + match[0].Groups["nakePath"].Value;
