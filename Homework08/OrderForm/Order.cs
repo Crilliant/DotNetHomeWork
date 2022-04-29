@@ -65,5 +65,9 @@ namespace OrderForm
             }
             details.Add(detail);
         }
+        public void RemoveDetail(OrderDetails detail)
+        {
+            details.Remove(detail);
+        }
     }
 }

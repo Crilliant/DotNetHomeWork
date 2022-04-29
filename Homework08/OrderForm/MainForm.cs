@@ -62,46 +62,29 @@ namespace OrderForm
 
         }
 
-        //// 表格右键选项==>失败了，没有任何右键菜单出现
-        //// https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.datagridviewrow.contextmenustrip?view=windowsdesktop-6.0
-        //private void AddContextMenuToGridRow()
-        //{
-        //    updateItem.Text = "修改";
-        //    deleteItem.Text = "删除";
-        //    updateItem.Click += new EventHandler(updateOrder);
-        //    deleteItem.Click += new EventHandler(deleteOrder);
 
-        //    ContextMenuStrip strip = new ContextMenuStrip();
-        //    foreach(DataGridViewRow row in OrderGridView.Rows)
-        //    {
-        //        row.ContextMenuStrip = strip;
-        //        row.ContextMenuStrip.Items.Add(updateItem);
-        //        row.ContextMenuStrip.Items.Add(deleteItem);
-
-        //    }
-            
-        //}
-
-        // 修改订单
-        private void updateOrder(object sender, EventArgs args)
-        {
-
-        }
-
-        // 删除订单
-        private void deleteOrder(object sender, EventArgs args)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            Order order = orderBindingSource.Current as Order;
+            if (order == null)
+            {
+                MessageBox.Show("请选择一个订单进行修改");
+                return;
+            }
+            EditForm form2 = new EditForm(order, true, service);
+            form2.Show();
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {            
+            EditForm form2 = new EditForm(new Order(), false, service);
+            form2.Show();
         }
 
         private void queryBtn_Click(object sender, EventArgs e)
@@ -140,24 +123,25 @@ namespace OrderForm
             }
         }
 
-        private void Querycbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void pnlOperation_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            Order o=orderBindingSource.Current as Order;
-            //For single row selection;            
-            int id = (int)OrderGridView.CurrentRow.Cells[0].Value;
-            service.DeleteByID(id);
-
+            Order o=orderBindingSource.Current as Order;//For single row selection;
+            if (o == null)
+            {
+                MessageBox.Show("请选择一个订单进行删除！");
+            }
+            DialogResult result = 
+                MessageBox.Show($"确认要删除Id为{o.ID}的订单吗？", "删除", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                service.DeleteByID(o.ID);
+                orderBindingSource.ResetBindings(false);//不改数据源，强制刷新
+            }            
         }
+
+
 
         private void exprtBtn_Click(object sender, EventArgs e)
         {
@@ -166,37 +150,17 @@ namespace OrderForm
 
         private void importBtn_Click(object sender, EventArgs e)
         {
-            service.Import("../OrderList.xml");
+            string openPath = "../OrderList.xml";
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+
+                openFileDialog.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    openPath = openFileDialog.FileName;
+                    service.Import(openPath);
+                }
+            }
         }
-
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        //{
-
-        //}
-
-        //private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        //{
-
-        //}
-
-        //private void GridDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-
-        //}
-
-        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void orderGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-
-        //}
     }
 }

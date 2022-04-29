@@ -31,7 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.splitOrder = new System.Windows.Forms.SplitContainer();
             this.OrderGridView = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dealTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.detailsGridView = new System.Windows.Forms.DataGridView();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,24 +66,15 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dealTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitOrder)).BeginInit();
             this.splitOrder.Panel1.SuspendLayout();
             this.splitOrder.Panel2.SuspendLayout();
             this.splitOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailsGridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlQuery.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitOrder
@@ -112,6 +112,44 @@
             this.OrderGridView.Size = new System.Drawing.Size(741, 552);
             this.OrderGridView.TabIndex = 4;
             // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // customerDataGridViewTextBoxColumn
+            // 
+            this.customerDataGridViewTextBoxColumn.DataPropertyName = "customer";
+            this.customerDataGridViewTextBoxColumn.HeaderText = "customer";
+            this.customerDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            this.customerDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // totalPriceDataGridViewTextBoxColumn
+            // 
+            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
+            this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalPriceDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dealTimeDataGridViewTextBoxColumn
+            // 
+            this.dealTimeDataGridViewTextBoxColumn.DataPropertyName = "DealTime";
+            this.dealTimeDataGridViewTextBoxColumn.HeaderText = "DealTime";
+            this.dealTimeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dealTimeDataGridViewTextBoxColumn.Name = "dealTimeDataGridViewTextBoxColumn";
+            this.dealTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dealTimeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataSource = typeof(OrderForm.Order);
+            // 
             // detailsGridView
             // 
             this.detailsGridView.AutoGenerateColumns = false;
@@ -130,6 +168,39 @@
             this.detailsGridView.RowTemplate.Height = 30;
             this.detailsGridView.Size = new System.Drawing.Size(799, 552);
             this.detailsGridView.TabIndex = 0;
+            // 
+            // Product
+            // 
+            this.Product.DataPropertyName = "Product";
+            this.Product.HeaderText = "商品";
+            this.Product.MinimumWidth = 8;
+            this.Product.Name = "Product";
+            this.Product.Width = 150;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "数量";
+            this.Number.MinimumWidth = 8;
+            this.Number.Name = "Number";
+            this.Number.Width = 150;
+            // 
+            // Discount
+            // 
+            this.Discount.DataPropertyName = "Discount";
+            this.Discount.HeaderText = "折扣";
+            this.Discount.MinimumWidth = 8;
+            this.Discount.Name = "Discount";
+            this.Discount.Width = 150;
+            // 
+            // totalPriceDataGridViewTextBoxColumn1
+            // 
+            this.totalPriceDataGridViewTextBoxColumn1.DataPropertyName = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn1.HeaderText = "总价格";
+            this.totalPriceDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.totalPriceDataGridViewTextBoxColumn1.Name = "totalPriceDataGridViewTextBoxColumn1";
+            this.totalPriceDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.totalPriceDataGridViewTextBoxColumn1.Width = 150;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -217,7 +288,6 @@
             this.Querycbx.Name = "Querycbx";
             this.Querycbx.Size = new System.Drawing.Size(242, 26);
             this.Querycbx.TabIndex = 0;
-            this.Querycbx.SelectedIndexChanged += new System.EventHandler(this.Querycbx_SelectedIndexChanged);
             // 
             // exprtBtn
             // 
@@ -250,18 +320,19 @@
             // 
             // updateBtn
             // 
-            this.updateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.updateBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.updateBtn.Location = new System.Drawing.Point(499, 52);
             this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(242, 44);
+            this.updateBtn.Size = new System.Drawing.Size(93, 44);
             this.updateBtn.TabIndex = 3;
             this.updateBtn.Text = "修改";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // AddBtn
             // 
-            this.AddBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.AddBtn.Location = new System.Drawing.Point(77, 52);
+            this.AddBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.AddBtn.Location = new System.Drawing.Point(3, 52);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 44);
             this.AddBtn.TabIndex = 5;
@@ -372,77 +443,6 @@
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.Width = 150;
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // customerDataGridViewTextBoxColumn
-            // 
-            this.customerDataGridViewTextBoxColumn.DataPropertyName = "customer";
-            this.customerDataGridViewTextBoxColumn.HeaderText = "customer";
-            this.customerDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
-            this.customerDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // totalPriceDataGridViewTextBoxColumn
-            // 
-            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
-            this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalPriceDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // dealTimeDataGridViewTextBoxColumn
-            // 
-            this.dealTimeDataGridViewTextBoxColumn.DataPropertyName = "DealTime";
-            this.dealTimeDataGridViewTextBoxColumn.HeaderText = "DealTime";
-            this.dealTimeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dealTimeDataGridViewTextBoxColumn.Name = "dealTimeDataGridViewTextBoxColumn";
-            this.dealTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dealTimeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataSource = typeof(OrderForm.Order);
-            // 
-            // Product
-            // 
-            this.Product.DataPropertyName = "Product";
-            this.Product.HeaderText = "商品";
-            this.Product.MinimumWidth = 8;
-            this.Product.Name = "Product";
-            this.Product.Width = 150;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "数量";
-            this.Number.MinimumWidth = 8;
-            this.Number.Name = "Number";
-            this.Number.Width = 150;
-            // 
-            // Discount
-            // 
-            this.Discount.DataPropertyName = "Discount";
-            this.Discount.HeaderText = "折扣";
-            this.Discount.MinimumWidth = 8;
-            this.Discount.Name = "Discount";
-            this.Discount.Width = 150;
-            // 
-            // totalPriceDataGridViewTextBoxColumn1
-            // 
-            this.totalPriceDataGridViewTextBoxColumn1.DataPropertyName = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn1.HeaderText = "总价格";
-            this.totalPriceDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.totalPriceDataGridViewTextBoxColumn1.Name = "totalPriceDataGridViewTextBoxColumn1";
-            this.totalPriceDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.totalPriceDataGridViewTextBoxColumn1.Width = 150;
-            // 
             // OrderManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -458,11 +458,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitOrder)).EndInit();
             this.splitOrder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailsGridView)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.pnlQuery.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
