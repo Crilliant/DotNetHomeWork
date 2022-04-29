@@ -95,12 +95,6 @@ namespace OrderForm
         //应该考虑无效路径，导入失败需要收集
         public void Import(string filename)
         {
-            //if (openFileDialog1.ShowDialog().Equals(DialogResult.OK))
-            //{
-            //    String fileName = openFileDialog1.FileName;
-            //    orderService.Import(fileName);
-            //    QueryAll();
-            //}
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
             List<Order> list;

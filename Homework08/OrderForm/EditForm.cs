@@ -17,6 +17,8 @@ namespace OrderForm
         private OrderService service;
         public Order CurrentOrder { get; set; }
        // public event Action<EditForm> CloseEditFrom;
+       static public List<Customer> CustomerList { get; set; }=new List<Customer>();
+        static public List<Product> ProductList { get; set; }=new List<Product>();
 
         public EditForm(Order order, bool model, OrderService service)
         {
@@ -39,18 +41,11 @@ namespace OrderForm
             {
                 lbl_dealTime.Text = DateTime.Now.ToString();
             }
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
+            customerBindingSource.DataSource = CustomerList;
+            productBindingSource.DataSource = ProductList;
 
         }
 
-
-        private void EditForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAddDetails_Click(object sender, EventArgs e)
         {
@@ -68,6 +63,7 @@ namespace OrderForm
             {
                 MessageBox.Show(ex.Message);
             }
+            orderDetailsBindingSource.ResetBindings(false);
         }
 
 
@@ -89,6 +85,7 @@ namespace OrderForm
             {
                 MessageBox.Show(ex.Message);
             }
+            orderDetailsBindingSource.ResetBindings(false);
         }
 
  
@@ -114,9 +111,5 @@ namespace OrderForm
             }
         }
 
-        private void groupBox_basicInfo_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

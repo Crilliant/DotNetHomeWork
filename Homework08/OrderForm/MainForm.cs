@@ -17,9 +17,6 @@ namespace OrderForm
         Customer Ada, Rick;
         Order order1, order2, order3;
 
-        //ToolStripMenuItem updateItem = new ToolStripMenuItem();
-        //ToolStripMenuItem deleteItem = new ToolStripMenuItem();
-
         public OrderManagementForm()
         {
             InitializeComponent();
@@ -27,8 +24,6 @@ namespace OrderForm
 
             Querycbx.SelectedIndex= 0;
 
-
-            //AddContextMenuToGridRow();
         }
         void initDataBindings()
         {
@@ -38,6 +33,11 @@ namespace OrderForm
             cat = new Product("cat", 50);
             Ada = new Customer("Ada");
             Rick = new Customer("Rick");
+            EditForm.CustomerList.Add(Ada);
+            EditForm.CustomerList.Add(Rick);
+            EditForm.ProductList.Add(apple);
+            EditForm.ProductList.Add(banana);
+            EditForm.ProductList.Add(cat);
 
             order1 = new Order(new List<OrderDetails> {
                 new OrderDetails(apple, 2, 1)

@@ -39,6 +39,7 @@
             this.nudNum = new System.Windows.Forms.NumericUpDown();
             this.txtBoxDiscount = new System.Windows.Forms.TextBox();
             this.cbxProduct = new System.Windows.Forms.ComboBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblDiscount = new System.Windows.Forms.Label();
             this.lblNum = new System.Windows.Forms.Label();
             this.lblProduct = new System.Windows.Forms.Label();
@@ -54,15 +55,18 @@
             this.lbl_time = new System.Windows.Forms.Label();
             this.lbl_orderID_value = new System.Windows.Forms.Label();
             this.cbb_customer_value = new System.Windows.Forms.ComboBox();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_dealTime = new System.Windows.Forms.Label();
             this.groupBox_details = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_editDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.pnlDetails.SuspendLayout();
             this.groupBox_basicInfo.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.groupBox_details.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,7 +93,7 @@
             this.dataGridView_editDetails.Name = "dataGridView_editDetails";
             this.dataGridView_editDetails.RowHeadersWidth = 62;
             this.dataGridView_editDetails.RowTemplate.Height = 30;
-            this.dataGridView_editDetails.Size = new System.Drawing.Size(824, 284);
+            this.dataGridView_editDetails.Size = new System.Drawing.Size(824, 253);
             this.dataGridView_editDetails.TabIndex = 1;
             // 
             // productDataGridViewTextBoxColumn
@@ -127,26 +131,31 @@
             // 
             // nudNum
             // 
-            this.nudNum.Location = new System.Drawing.Point(169, 68);
+            this.nudNum.Location = new System.Drawing.Point(169, 93);
             this.nudNum.Name = "nudNum";
             this.nudNum.Size = new System.Drawing.Size(120, 28);
             this.nudNum.TabIndex = 9;
             // 
             // txtBoxDiscount
             // 
-            this.txtBoxDiscount.Location = new System.Drawing.Point(335, 68);
+            this.txtBoxDiscount.Location = new System.Drawing.Point(335, 93);
             this.txtBoxDiscount.Name = "txtBoxDiscount";
             this.txtBoxDiscount.Size = new System.Drawing.Size(100, 28);
             this.txtBoxDiscount.TabIndex = 8;
             // 
             // cbxProduct
             // 
-            this.cbxProduct.DataSource = this.orderBindingSource;
+            this.cbxProduct.DataSource = this.productBindingSource;
+            this.cbxProduct.DisplayMember = "Name";
             this.cbxProduct.FormattingEnabled = true;
-            this.cbxProduct.Location = new System.Drawing.Point(3, 68);
+            this.cbxProduct.Location = new System.Drawing.Point(3, 93);
             this.cbxProduct.Name = "cbxProduct";
             this.cbxProduct.Size = new System.Drawing.Size(121, 26);
             this.cbxProduct.TabIndex = 6;
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(OrderForm.Product);
             // 
             // lblDiscount
             // 
@@ -204,22 +213,21 @@
             this.pnlDetails.Controls.Add(this.btn_modify, 3, 1);
             this.pnlDetails.Controls.Add(this.btn_exit, 3, 2);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetails.Location = new System.Drawing.Point(0, 493);
+            this.pnlDetails.Location = new System.Drawing.Point(0, 462);
             this.pnlDetails.Name = "pnlDetails";
             this.pnlDetails.RowCount = 3;
             this.pnlDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.pnlDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlDetails.Size = new System.Drawing.Size(830, 100);
-            this.pnlDetails.TabIndex = 0;
-            this.pnlDetails.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
-            // 
+            this.pnlDetails.Size = new System.Drawing.Size(830, 150);
+            this.pnlDetails.TabIndex = 0;// 
             // btnAddDetails
             // 
             this.btnAddDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddDetails.Location = new System.Drawing.Point(667, 33);
+            this.btnAddDetails.Location = new System.Drawing.Point(669, 35);
+            this.btnAddDetails.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddDetails.Name = "btnAddDetails";
-            this.btnAddDetails.Size = new System.Drawing.Size(160, 29);
+            this.btnAddDetails.Size = new System.Drawing.Size(156, 50);
             this.btnAddDetails.TabIndex = 12;
             this.btnAddDetails.Text = "添加";
             this.btnAddDetails.UseVisualStyleBackColor = true;
@@ -228,9 +236,10 @@
             // btn_modify
             // 
             this.btn_modify.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_modify.Location = new System.Drawing.Point(501, 33);
+            this.btn_modify.Location = new System.Drawing.Point(503, 35);
+            this.btn_modify.Margin = new System.Windows.Forms.Padding(5);
             this.btn_modify.Name = "btn_modify";
-            this.btn_modify.Size = new System.Drawing.Size(160, 29);
+            this.btn_modify.Size = new System.Drawing.Size(156, 50);
             this.btn_modify.TabIndex = 10;
             this.btn_modify.Text = "修改";
             this.btn_modify.UseVisualStyleBackColor = true;
@@ -240,9 +249,10 @@
             // 
             this.pnlDetails.SetColumnSpan(this.btn_exit, 2);
             this.btn_exit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_exit.Location = new System.Drawing.Point(501, 68);
+            this.btn_exit.Location = new System.Drawing.Point(503, 95);
+            this.btn_exit.Margin = new System.Windows.Forms.Padding(5);
             this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(326, 29);
+            this.btn_exit.Size = new System.Drawing.Size(322, 50);
             this.btn_exit.TabIndex = 11;
             this.btn_exit.Text = "完成";
             this.btn_exit.UseVisualStyleBackColor = true;
@@ -259,7 +269,6 @@
             this.groupBox_basicInfo.TabIndex = 2;
             this.groupBox_basicInfo.TabStop = false;
             this.groupBox_basicInfo.Text = "基本信息";
-            this.groupBox_basicInfo.Enter += new System.EventHandler(this.groupBox_basicInfo_Enter);
             // 
             // tableLayoutPanel1
             // 
@@ -325,13 +334,17 @@
             // 
             // cbb_customer_value
             // 
-            this.cbb_customer_value.DataSource = this.orderBindingSource;
-            this.cbb_customer_value.DisplayMember = "customer";
+            this.cbb_customer_value.DataSource = this.customerBindingSource;
+            this.cbb_customer_value.DisplayMember = "Name";
             this.cbb_customer_value.FormattingEnabled = true;
             this.cbb_customer_value.Location = new System.Drawing.Point(203, 54);
             this.cbb_customer_value.Name = "cbb_customer_value";
             this.cbb_customer_value.Size = new System.Drawing.Size(121, 26);
             this.cbb_customer_value.TabIndex = 4;
+            // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataSource = typeof(OrderForm.Customer);
             // 
             // lbl_dealTime
             // 
@@ -351,7 +364,7 @@
             this.groupBox_details.Location = new System.Drawing.Point(0, 182);
             this.groupBox_details.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.groupBox_details.Name = "groupBox_details";
-            this.groupBox_details.Size = new System.Drawing.Size(830, 311);
+            this.groupBox_details.Size = new System.Drawing.Size(830, 280);
             this.groupBox_details.TabIndex = 3;
             this.groupBox_details.TabStop = false;
             this.groupBox_details.Text = "订单明细";
@@ -360,22 +373,23 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 593);
+            this.ClientSize = new System.Drawing.Size(830, 612);
             this.Controls.Add(this.groupBox_details);
             this.Controls.Add(this.groupBox_basicInfo);
             this.Controls.Add(this.pnlDetails);
             this.Name = "EditForm";
             this.Text = "编辑窗口";
-            this.Load += new System.EventHandler(this.EditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_editDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.pnlDetails.ResumeLayout(false);
             this.pnlDetails.PerformLayout();
             this.groupBox_basicInfo.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.groupBox_details.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -409,5 +423,7 @@
         private System.Windows.Forms.Button btn_modify;
         private System.Windows.Forms.Button btnAddDetails;
         private System.Windows.Forms.Button btn_exit;
+        private System.Windows.Forms.BindingSource productBindingSource;
+        private System.Windows.Forms.BindingSource customerBindingSource;
     }
 }
