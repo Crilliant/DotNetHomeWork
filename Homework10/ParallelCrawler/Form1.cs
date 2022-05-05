@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
+//TODO:查看时间，比较
 namespace ParallelCrawler
 {
     public partial class Form1 : Form

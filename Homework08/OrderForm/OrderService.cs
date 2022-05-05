@@ -16,7 +16,7 @@ namespace OrderForm
         {
             //order 可以添加inValid()判定
             if (o == null) { throw new ApplicationException("null order!"); }
-            if(!o.IsValid()) { throw new ApplicationException("invalid order!"); }
+            if(!o.IsValid()) { throw new ApplicationException("invalid order:"+o.ToString()); }
             if (OrderList.Contains(o))
                 throw new ArgumentException($"Order {o.ID} exists.");//applicationException
             OrderList.Add(o);

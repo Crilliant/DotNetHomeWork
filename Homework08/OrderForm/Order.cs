@@ -34,7 +34,9 @@ namespace OrderForm
                 details.Add(i);
             }
         }
-        public Order() { }
+        public Order() {
+            ID = ++TotalID;
+        }
 
         public override bool Equals(object obj)
         {

@@ -32,9 +32,9 @@
             this.orderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView_editDetails = new System.Windows.Forms.DataGridView();
-            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nudNum = new System.Windows.Forms.NumericUpDown();
             this.txtBoxDiscount = new System.Windows.Forms.TextBox();
@@ -45,9 +45,10 @@
             this.lblProduct = new System.Windows.Forms.Label();
             this.lblDetails = new System.Windows.Forms.Label();
             this.pnlDetails = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddDetails = new System.Windows.Forms.Button();
+            this.btn_addDetails = new System.Windows.Forms.Button();
             this.btn_modify = new System.Windows.Forms.Button();
             this.btn_exit = new System.Windows.Forms.Button();
+            this.btn_deleteDetail = new System.Windows.Forms.Button();
             this.groupBox_basicInfo = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_orderID = new System.Windows.Forms.Label();
@@ -83,9 +84,9 @@
             this.dataGridView_editDetails.AutoGenerateColumns = false;
             this.dataGridView_editDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_editDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productDataGridViewTextBoxColumn,
-            this.numberDataGridViewTextBoxColumn,
-            this.discountDataGridViewTextBoxColumn,
+            this.Product,
+            this.Number,
+            this.Discount,
             this.totalPriceDataGridViewTextBoxColumn});
             this.dataGridView_editDetails.DataSource = this.orderDetailsBindingSource;
             this.dataGridView_editDetails.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -96,29 +97,29 @@
             this.dataGridView_editDetails.Size = new System.Drawing.Size(824, 253);
             this.dataGridView_editDetails.TabIndex = 1;
             // 
-            // productDataGridViewTextBoxColumn
+            // Product
             // 
-            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            this.productDataGridViewTextBoxColumn.HeaderText = "商品名称";
-            this.productDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            this.productDataGridViewTextBoxColumn.Width = 150;
+            this.Product.DataPropertyName = "Product";
+            this.Product.HeaderText = "商品";
+            this.Product.MinimumWidth = 8;
+            this.Product.Name = "Product";
+            this.Product.Width = 150;
             // 
-            // numberDataGridViewTextBoxColumn
+            // Number
             // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "数量";
-            this.numberDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.Width = 150;
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "数量";
+            this.Number.MinimumWidth = 8;
+            this.Number.Name = "Number";
+            this.Number.Width = 150;
             // 
-            // discountDataGridViewTextBoxColumn
+            // Discount
             // 
-            this.discountDataGridViewTextBoxColumn.DataPropertyName = "Discount";
-            this.discountDataGridViewTextBoxColumn.HeaderText = "折扣";
-            this.discountDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
-            this.discountDataGridViewTextBoxColumn.Width = 150;
+            this.Discount.DataPropertyName = "Discount";
+            this.Discount.HeaderText = "折扣";
+            this.Discount.MinimumWidth = 8;
+            this.Discount.Name = "Discount";
+            this.Discount.Width = 150;
             // 
             // totalPriceDataGridViewTextBoxColumn
             // 
@@ -131,14 +132,14 @@
             // 
             // nudNum
             // 
-            this.nudNum.Location = new System.Drawing.Point(169, 93);
+            this.nudNum.Location = new System.Drawing.Point(149, 93);
             this.nudNum.Name = "nudNum";
             this.nudNum.Size = new System.Drawing.Size(120, 28);
             this.nudNum.TabIndex = 9;
             // 
             // txtBoxDiscount
             // 
-            this.txtBoxDiscount.Location = new System.Drawing.Point(335, 93);
+            this.txtBoxDiscount.Location = new System.Drawing.Point(295, 93);
             this.txtBoxDiscount.Name = "txtBoxDiscount";
             this.txtBoxDiscount.Size = new System.Drawing.Size(100, 28);
             this.txtBoxDiscount.TabIndex = 8;
@@ -160,7 +161,7 @@
             // lblDiscount
             // 
             this.lblDiscount.AutoSize = true;
-            this.lblDiscount.Location = new System.Drawing.Point(335, 30);
+            this.lblDiscount.Location = new System.Drawing.Point(295, 30);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(44, 18);
             this.lblDiscount.TabIndex = 4;
@@ -169,7 +170,7 @@
             // lblNum
             // 
             this.lblNum.AutoSize = true;
-            this.lblNum.Location = new System.Drawing.Point(169, 30);
+            this.lblNum.Location = new System.Drawing.Point(149, 30);
             this.lblNum.Name = "lblNum";
             this.lblNum.Size = new System.Drawing.Size(44, 18);
             this.lblNum.TabIndex = 3;
@@ -196,13 +197,14 @@
             // 
             // pnlDetails
             // 
-            this.pnlDetails.ColumnCount = 5;
+            this.pnlDetails.ColumnCount = 6;
             this.pnlDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.pnlDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.pnlDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.pnlDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.pnlDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.pnlDetails.Controls.Add(this.btnAddDetails, 4, 1);
+            this.pnlDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.pnlDetails.Controls.Add(this.btn_addDetails, 4, 1);
             this.pnlDetails.Controls.Add(this.lblDetails, 0, 0);
             this.pnlDetails.Controls.Add(this.lblProduct, 0, 1);
             this.pnlDetails.Controls.Add(this.lblNum, 1, 1);
@@ -212,6 +214,7 @@
             this.pnlDetails.Controls.Add(this.nudNum, 1, 2);
             this.pnlDetails.Controls.Add(this.btn_modify, 3, 1);
             this.pnlDetails.Controls.Add(this.btn_exit, 3, 2);
+            this.pnlDetails.Controls.Add(this.btn_deleteDetail, 5, 1);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlDetails.Location = new System.Drawing.Point(0, 462);
             this.pnlDetails.Name = "pnlDetails";
@@ -220,26 +223,27 @@
             this.pnlDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlDetails.Size = new System.Drawing.Size(830, 150);
-            this.pnlDetails.TabIndex = 0;// 
-            // btnAddDetails
+            this.pnlDetails.TabIndex = 0;
             // 
-            this.btnAddDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddDetails.Location = new System.Drawing.Point(669, 35);
-            this.btnAddDetails.Margin = new System.Windows.Forms.Padding(5);
-            this.btnAddDetails.Name = "btnAddDetails";
-            this.btnAddDetails.Size = new System.Drawing.Size(156, 50);
-            this.btnAddDetails.TabIndex = 12;
-            this.btnAddDetails.Text = "添加";
-            this.btnAddDetails.UseVisualStyleBackColor = true;
-            this.btnAddDetails.Click += new System.EventHandler(this.btnAddDetails_Click);
+            // btn_addDetails
+            // 
+            this.btn_addDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_addDetails.Location = new System.Drawing.Point(589, 35);
+            this.btn_addDetails.Margin = new System.Windows.Forms.Padding(5);
+            this.btn_addDetails.Name = "btn_addDetails";
+            this.btn_addDetails.Size = new System.Drawing.Size(136, 50);
+            this.btn_addDetails.TabIndex = 12;
+            this.btn_addDetails.Text = "添加";
+            this.btn_addDetails.UseVisualStyleBackColor = true;
+            this.btn_addDetails.Click += new System.EventHandler(this.btnAddDetails_Click);
             // 
             // btn_modify
             // 
             this.btn_modify.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_modify.Location = new System.Drawing.Point(503, 35);
+            this.btn_modify.Location = new System.Drawing.Point(443, 35);
             this.btn_modify.Margin = new System.Windows.Forms.Padding(5);
             this.btn_modify.Name = "btn_modify";
-            this.btn_modify.Size = new System.Drawing.Size(156, 50);
+            this.btn_modify.Size = new System.Drawing.Size(136, 50);
             this.btn_modify.TabIndex = 10;
             this.btn_modify.Text = "修改";
             this.btn_modify.UseVisualStyleBackColor = true;
@@ -247,16 +251,27 @@
             // 
             // btn_exit
             // 
-            this.pnlDetails.SetColumnSpan(this.btn_exit, 2);
+            this.pnlDetails.SetColumnSpan(this.btn_exit, 3);
             this.btn_exit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_exit.Location = new System.Drawing.Point(503, 95);
+            this.btn_exit.Location = new System.Drawing.Point(443, 95);
             this.btn_exit.Margin = new System.Windows.Forms.Padding(5);
             this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(322, 50);
+            this.btn_exit.Size = new System.Drawing.Size(382, 50);
             this.btn_exit.TabIndex = 11;
-            this.btn_exit.Text = "完成";
+            this.btn_exit.Text = "保存";
             this.btn_exit.UseVisualStyleBackColor = true;
-            this.btn_exit.Click += new System.EventHandler(this.button1_Click);
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            // 
+            // btn_deleteDetail
+            // 
+            this.btn_deleteDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_deleteDetail.Location = new System.Drawing.Point(733, 33);
+            this.btn_deleteDetail.Name = "btn_deleteDetail";
+            this.btn_deleteDetail.Size = new System.Drawing.Size(94, 54);
+            this.btn_deleteDetail.TabIndex = 13;
+            this.btn_deleteDetail.Text = "删除";
+            this.btn_deleteDetail.UseVisualStyleBackColor = true;
+            this.btn_deleteDetail.Click += new System.EventHandler(this.btn_deleteDetail_Click);
             // 
             // groupBox_basicInfo
             // 
@@ -325,7 +340,6 @@
             // lbl_orderID_value
             // 
             this.lbl_orderID_value.AutoSize = true;
-            this.lbl_orderID_value.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "ID", true));
             this.lbl_orderID_value.Location = new System.Drawing.Point(203, 0);
             this.lbl_orderID_value.Name = "lbl_orderID_value";
             this.lbl_orderID_value.Size = new System.Drawing.Size(17, 18);
@@ -408,10 +422,6 @@
         private System.Windows.Forms.Label lblDetails;
         private System.Windows.Forms.TableLayoutPanel pnlDetails;
         private System.Windows.Forms.GroupBox groupBox_basicInfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox_details;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lbl_orderID;
@@ -421,9 +431,14 @@
         private System.Windows.Forms.ComboBox cbb_customer_value;
         private System.Windows.Forms.Label lbl_dealTime;
         private System.Windows.Forms.Button btn_modify;
-        private System.Windows.Forms.Button btnAddDetails;
+        private System.Windows.Forms.Button btn_addDetails;
         private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.BindingSource customerBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btn_deleteDetail;
     }
 }

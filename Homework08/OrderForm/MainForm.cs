@@ -136,7 +136,13 @@ namespace OrderForm
                 MessageBox.Show($"确认要删除Id为{o.ID}的订单吗？", "删除", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                service.DeleteByID(o.ID);
+                try
+                {
+                    service.DeleteByID(o.ID);
+                }catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 orderBindingSource.ResetBindings(false);//不改数据源，强制刷新
             }            
         }

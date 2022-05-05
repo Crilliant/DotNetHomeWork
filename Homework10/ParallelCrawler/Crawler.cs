@@ -36,7 +36,8 @@ namespace ParallelCrawler
             visited[startUrl] = false;
             LogHandler("开始爬行了.... \r\n");
 
-            // Crawl();
+            // 需要查看一下task状态，可能不是5个同时跑
+            // Todo
             Task[] tasks = {
                 Task.Run( () => Crawl() ),
                 Task.Run( () => Crawl() ),
@@ -50,7 +51,7 @@ namespace ParallelCrawler
         private void Crawl()
         {
             
-            while (true)
+            while (true)    // 不要写while(true)
             {
                 string current = null;
                 
@@ -69,6 +70,8 @@ namespace ParallelCrawler
                 string html = DownLoad(current); // 下载
                 visited[current] = true;
                 
+                //Todo: 查看影响效率,怀疑不能真的lock visited
+
                 lock (this)
                 {
                     count++;// 已爬过的数量

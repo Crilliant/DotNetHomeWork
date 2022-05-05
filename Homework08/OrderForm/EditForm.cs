@@ -26,7 +26,8 @@ namespace OrderForm
             this.service = service;
             EditModel= model;
             CurrentOrder = order;
-            orderDetailsBindingSource.DataSource = CurrentOrder;
+            orderBindingSource.DataSource = CurrentOrder;
+            orderDetailsBindingSource.DataSource = CurrentOrder.details;
             InitialForm();
         }
         private void InitialForm()
@@ -40,16 +41,17 @@ namespace OrderForm
             else
             {
                 lbl_dealTime.Text = DateTime.Now.ToString();
+                lbl_orderID_value.Text = (service.OrderList.Count+1).ToString();                
             }
             customerBindingSource.DataSource = CustomerList;
             productBindingSource.DataSource = ProductList;
-
+            orderBindingSource.ResetBindings(true);
         }
 
 
         private void btnAddDetails_Click(object sender, EventArgs e)
         {
-            if (!Int32.TryParse(txtBoxDiscount.Text, out int discount))
+            if (!float.TryParse(txtBoxDiscount.Text, out float discount))
                 MessageBox.Show("invalid discount");
             try
             {
@@ -68,32 +70,16 @@ namespace OrderForm
 
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!EditModel)//如果是add
-                {
-                    service.AddOdder(CurrentOrder);
-                }
-                else
-                {
-                    service.Updata(CurrentOrder);
-                }
-                this.Close();
-            }catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            orderDetailsBindingSource.ResetBindings(false);
-        }
-
- 
 
         private void btn_modify_Click(object sender, EventArgs e)
         {
-            OrderDetails currentDetail = orderBindingSource.Current as OrderDetails;
-            if (!Int32.TryParse(txtBoxDiscount.Text, out int discount))
+            OrderDetails currentDetail = orderDetailsBindingSource.Current as OrderDetails;
+            if (currentDetail == null)
+            {
+                MessageBox.Show("请选择一个订单项进行修改");
+                return;
+            }
+            if (!float.TryParse(txtBoxDiscount.Text, out float discount))
                 MessageBox.Show("invalid discount");
             try
             {
@@ -109,7 +95,36 @@ namespace OrderForm
             {
                 MessageBox.Show(ex.Message);
             }
+            orderDetailsBindingSource.ResetBindings(false);
+        }
+        private void btn_deleteDetail_Click(object sender, EventArgs e)
+        {
+            OrderDetails currentDetail = orderDetailsBindingSource.Current as OrderDetails;
+            try
+            {
+                CurrentOrder.RemoveDetail(currentDetail);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            orderDetailsBindingSource.ResetBindings(false);
         }
 
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            if (!EditModel)//增加
+            {
+                try
+                {
+                    CurrentOrder.customer =(Customer) cbb_customer_value.SelectedItem;
+                    service.AddOdder(CurrentOrder);
+                }catch(Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            orderDetailsBindingSource.ResetBindings(false);
+            this.Close();
+        }
+
+
+
+       
     }
 }
