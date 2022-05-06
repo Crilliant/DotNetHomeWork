@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrderDB.Properties
+namespace OrderForm.Properties
 {
 
 
