@@ -91,7 +91,7 @@ namespace OrderForm
             using (var context =new OrderContext())
             {
                 var order=context.Orders.FirstOrDefault(o => o.ID == id);
-                context.Orders.Remove(order);
+                context.Orders.Remove(order);// todo:需要同时删除丁订单明细
                 context.SaveChanges();
             }
             

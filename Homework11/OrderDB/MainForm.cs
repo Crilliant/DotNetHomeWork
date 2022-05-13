@@ -81,12 +81,15 @@ namespace OrderForm
             }
             EditForm form2 = new EditForm(order, true, service);
             form2.Show();
+           // orderBindingSource.ResetBindings(false);
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {            
             EditForm form2 = new EditForm(new Order(), false, service);
             form2.Show();
+            //orderBindingSource.ResetBindings(false);
+
         }
 
         private void queryBtn_Click(object sender, EventArgs e)
